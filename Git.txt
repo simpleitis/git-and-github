@@ -1,0 +1,48 @@
+Before using git you need to specify username and email using
+git config --global user.name 'USERNAME'
+git config --global user.email 'USER@MAIL.COM'
+
+git add index.html mainpage.html - To stage specific files. This should be done each time a new commit is going to be made. It is like taking the new file in hand befor putting it inside a locker. When using 'git add .', we can make use of the '.gitignore' files to tell git which all files to ignore for staging.
+
+git status - To check which files are staged, commits, current branch etc
+
+git log - To see list of commits older than the current commit
+
+git checkout <commit id/branch name> - When using checkout to move to a previous commit. We get a seperate copy of that commit and it is not part of the branch in which we actually made the commit. When we use 'git log' after we check out a commit we won't see other commits. So if we want to see all the commits to a branch we made we have to use 'git checkout BRANCH_NAME'
+
+git revert <id>- We can use 'git revert' to revert a commit and git will undo all the changes in that commit. It does not revert all the changes SINCE that commit but all the changes in that commit. When we do this git creates a new commit which has reverted all the changes of the commit we wanted to revert. When we run this command we would be promted to add a new message for the commit that would be created for the revert and we have to add the message at the bottom of the termainla windows that open and save according to the terminal.
+
+git reset --hard <id> - You can use this command to deleted all the commits after the specified id of the commit provided in the command.
+
+Branches are container which contain commits
+
+git branch <branch name> - This command takes the latest commit which is targeted by head and creates a seperate copy of the code. All the old commits are also copies but the latest commit pointed by the head would be the starting point of the branch and we can move to previous commits if we wish to.
+
+git merge <branch name> - In a new branch we can create new commits and once we reach a point where we want to merge those changes to the main branch we need to checkout the main branch and we can use the 'git merge' command and git will take the latest commit of the main branch and the latest commit of the feature branch and try to merge all the code without overwriting anything and if there are any conflicts then we need to resolve them manually. The command could some times ask you to provide a name for the commit that would be created after the merge, this depends upon the complexity of the merge.
+
+git branch - Lists all existing branch names
+
+git branch -D <branch name> - Delete a branch
+
+git checkout -b <branch name> - This command creates a new branch and switch to that branch
+
+git remote add origin <github repo url> - Used to connect a git hub remote repo and out local git repo. Origin is just a commonly used name for the remote, i.e, connection. After adding the remote we need to also rename the local 'master' branch to 'main' branch using 'git branch -M master main' because the name of the local branch and the remote branch should be same. The same would go for if you were dealing with a different branch. When push a different branch like 'new-feature-branch' you would have to run 'git push origin new-feature-branch', if the branch does not exists on the remote repo, it will be created.
+
+To set the user name and password when trying to set up a remot connection you can modify the github url like
+https://github.com/simpleitis/learn-git/tree/new-feature -> https://USERNAME@github.com/simpleitis/learn-git/tree/new-feature
+This would prompt you to enter a password and you can enter the token key as the password
+
+git push origin <branch name> - Tell git to push the current local branch to remote branch <branch name>
+
+git pull origin <branch name> - Pulls the latest code for the specified branch name to the local branch with the same name. We need to checkout the same branch inside the local repo before pulling.
+
+For us to push to a different branch, we have to be added as a collaborator by the owner of the repo. If we are not a collaborator and still want to contribute, we can fork the repo and then send out a pull request to the original repo.
+
+We can enable branch protection for main branch, so that when people try to push to main branch, they have to first send out a pull request and then the pull request should be accepted by someone on the team.
+
+
+
+
+
+
+
